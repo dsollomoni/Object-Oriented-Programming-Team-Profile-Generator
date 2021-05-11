@@ -168,7 +168,7 @@ function finishHtml() {
             console.log(err);
         };
     });
-    console.log("Page successfully generated!");
+    console.log("Team successfully generated!");
 }
 
 initApp();
