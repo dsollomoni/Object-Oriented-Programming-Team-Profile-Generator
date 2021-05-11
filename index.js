@@ -6,14 +6,14 @@ const Manager = require("./lib/Manager");
 
 const employees = [];
 
-function initApp() {
-    startHtml();
-    addMember();
+function team() {
+    runpage();
+    teammate();
 }
 
-function addMember() {
+function teammate() {
     inquirer.prompt([{
-        message: "Enter team member's name",
+        message: "Enter team member's name:",
         name: "name"
     },
     {
@@ -27,11 +27,11 @@ function addMember() {
         name: "role"
     },
     {
-        message: "Enter team member's id",
+        message: "Enter team member's id:",
         name: "id"
     },
     {
-        message: "Enter team member's email address",
+        message: "Enter team member's email address:",
         name: "email"
     }])
     .then(function({name, role, id, email}) {
@@ -44,7 +44,7 @@ function addMember() {
             roleInfo = "office phone number";
         }
         inquirer.prompt([{
-            message: `Enter team member's ${roleInfo}`,
+            message: `Enter team member's ${roleInfo}:`,
             name: "roleInfo"
         },
         {
@@ -69,9 +69,9 @@ function addMember() {
             addHtml(newMember)
             .then(function() {
                 if (moreMembers === "yes") {
-                    addMember();
+                    teammate();
                 } else {
-                    finishHtml();
+                    finishpage();
                 }
             });
             
@@ -79,7 +79,7 @@ function addMember() {
     });
 }
 
-function startHtml() {
+function runpage() {
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -156,7 +156,7 @@ function addHtml(member) {
     
 }
 
-function finishHtml() {
+function finishpage() {
     const html = ` </div>
     </div>
     
@@ -171,4 +171,4 @@ function finishHtml() {
     console.log("Team successfully generated!");
 }
 
-initApp();
+team();
